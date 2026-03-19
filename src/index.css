@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  @font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant/CormorantGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant/CormorantGaramond-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant/CormorantGaramond-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant/CormorantGaramond-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant/CormorantGaramond-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+  :root {
+    /* Misty Lavender Palette - derived from cherry blossom background */
+    --background: 270 20% 98%;
+    --foreground: 270 25% 25%;
+
+    --card: 270 25% 97%;
+    --card-foreground: 270 25% 20%;
+
+    --popover: 270 20% 98%;
+    --popover-foreground: 270 25% 25%;
+
+    --primary: 270 30% 45%;
+    --primary-foreground: 270 20% 98%;
+
+    --secondary: 270 15% 92%;
+    --secondary-foreground: 270 25% 30%;
+
+    --muted: 270 15% 94%;
+    --muted-foreground: 270 15% 50%;
+
+    --accent: 270 25% 88%;
+    --accent-foreground: 270 30% 35%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 20% 88%;
+    --input: 270 20% 88%;
+    --ring: 270 30% 45%;
+
+    --radius: 0.5rem;
+
+    /* Custom Colors */
+    --lavender: 270 30% 75%;
+    --lavender-mist: 270 20% 95%;
+    --lavender-deep: 270 35% 40%;
+    --purple-gray: 270 15% 55%;
+    --warm-white: 30 20% 98%;
+    --soft-mauve: 300 15% 70%;
+    
+    /* Glass effect */
+    --glass-bg: 270 25% 97% / 0.85;
+    --glass-border: 270 20% 85% / 0.5;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsla(270, 22%, 33%, 0.1);
+    --shadow-medium: 0 8px 30px -4px hsl(270 30% 45% / 0.15);
+  }
+
+  .dark {
+    --background: 270 25% 8%;
+    --foreground: 270 15% 95%;
+
+    --card: 270 25% 10%;
+    --card-foreground: 270 15% 95%;
+
+    --popover: 270 25% 8%;
+    --popover-foreground: 270 15% 95%;
+
+    --primary: 270 30% 70%;
+    --primary-foreground: 270 25% 10%;
+
+    --secondary: 270 20% 18%;
+    --secondary-foreground: 270 15% 90%;
+
+    --muted: 270 20% 18%;
+    --muted-foreground: 270 15% 65%;
+
+    --accent: 270 20% 20%;
+    --accent-foreground: 270 15% 90%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 20% 18%;
+    --input: 270 20% 18%;
+    --ring: 270 30% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Lato', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-header {
+    @apply backdrop-blur-md border-b;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      hsl(270 20% 98% / 0.1) 0%,
+      hsl(270 20% 98% / 0.2) 40%,
+      hsl(270 20% 98% / 0.3) 60%,
+      hsl(270 20% 98% / 0.5) 80%
+    );
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-6;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    @apply text-3xl md:text-4xl lg:text-5xl italic leading-relaxed;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
