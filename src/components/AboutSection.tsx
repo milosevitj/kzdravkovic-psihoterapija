@@ -1,4 +1,4 @@
-import katarinaPhoto from '@/assets/katarina-photo.jpg';
+import katarinaPhoto from '@/assets/katarina-photo.webp';
 
 const AboutSection = () => {
   return (
@@ -11,6 +11,9 @@ const AboutSection = () => {
               <img
                 src={katarinaPhoto}
                 alt="Katarina Zdravković - psihoterapeut"
+                width="800"
+                height="1067"
+                loading="eager"
                 className="w-full h-full object-cover object-top"
               />
             </div>
